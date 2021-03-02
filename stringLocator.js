@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const locateSubTextInSentence = (sentence, subText) => {
     var locations = [];
     var subTextRange = subText.length;
