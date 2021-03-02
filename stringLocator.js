@@ -3,14 +3,16 @@ const _ = require('lodash');
 const range = (length) => [...Array(length).keys()];
 
 const locateSubTextInSentence = (sentence, subText) => {
-    var locations = _.reduce(sentence, (positions, _letter, sentenceIndex) => {
-        var subTextIndex = range(subText.length);
+    var locations = [];
+    var subTextRange = subText.length;
+    for (var sentenceIndex = 0; sentenceIndex < sentence.length; sentenceIndex++) {
+        var subTextIndex = range(subTextRange);
         var completeMatch = _.every(subTextIndex, (index) => sentence[sentenceIndex + index].toLowerCase() === subText[index].toLowerCase());
         if (completeMatch) { 
-            positions.push(sentenceIndex + 1)
+            locations.push(sentenceIndex + 1)
+            sentenceIndex + subTextRange;
         }
-        return positions;
-    }, []);
+    }
     const result = { 'subtext': subText, 'result': locations } 
     return result
 }
