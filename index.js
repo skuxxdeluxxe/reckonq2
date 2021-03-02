@@ -3,17 +3,22 @@ const axios = require('axios').default;
 const axiosRetry = require('axios-retry');
 const Promise = require("bluebird");
 const app = express();
-const divisorFuncs = require('./divisorFuncs.js');
+const stringLocator = require('./stringLocator.js');
 const port = 9999;
 
 axiosRetry(axios, { retries: 3 });
 
 app.get("/", (req, res) => {
   Promise.all([
-    axios.get('https://join.reckon.com/test1/rangeInfo'),
-    axios.get('https://join.reckon.com/test1/divisorInfo')
+    axios.get('https://join.reckon.com/test2/textToSearch'),
+    axios.get('https://join.reckon.com/test2/subTexts')
   ])
-  .spread((rangeInfo, divisorInfo) => { res.send(divisorFuncs.getResult(rangeInfo.data, divisorInfo.data)) });
+  .spread((textToSearch, subText) => { 
+    console.log(textToSearch.data);
+    console.log(subText.data);
+    var response = stringLocator.locate(textToSearch.data, subText.data);
+    res.send(response); 
+  });
 });
 
 
