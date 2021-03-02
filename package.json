@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skuxxdeluxxe/reckonq1.git"
+    "url": "git+https://github.com/skuxxdeluxxe/reckonq2.git"
   },
   "author": "Shantanu Padhye",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/skuxxdeluxxe/reckonq1/issues"
+    "url": "https://github.com/skuxxdeluxxe/reckonq2/issues"
   },
-  "homepage": "https://github.com/skuxxdeluxxe/reckonq1#readme",
+  "homepage": "https://github.com/skuxxdeluxxe/reckonq2#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",
