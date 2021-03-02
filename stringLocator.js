@@ -16,6 +16,10 @@ const locateSubTextInSentence = (sentence, subText) => {
             sentenceIndex + subTextRange;
         }
     }
+
+    if (locations.length === 0) {
+        locations = "<No Output>"
+    }
     return  { 'subtext': subText, 'result': locations };
 }
 

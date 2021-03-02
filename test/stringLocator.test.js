@@ -23,7 +23,7 @@ describe('String Locator', () => {
 
         describe('when a subtext is NOT found in the sentece', () => {
             let subtext = 'Z'
-            let result = { 'subtext': subtext, 'result': [] }
+            let result = { 'subtext': subtext, 'result': '<No Output>' }
             it('should return an empty array', () => {
                 expect(stringLocator.locateSubTextInSentence(sentence, subtext)).to.eql(result);
             });
@@ -33,7 +33,7 @@ describe('String Locator', () => {
     describe('Locate', () => {
         let inputtedSentence = { 'text': sentence };
         let inputtedSubTexts = { 'subTexts': ['Peter', 'peter', 'z'] };
-        let locations = [ { 'subtext': 'Peter', 'result': [1,43,98] }, { 'subtext': 'peter', 'result': [1,43,98] }, { 'subtext': 'z', 'result': [] }];
+        let locations = [ { 'subtext': 'Peter', 'result': [1,43,98] }, { 'subtext': 'peter', 'result': [1,43,98] }, { 'subtext': 'z', 'result': '<No Output>' }];
         let result = {
             candidate: 'Shantanu Padhye',
             text: sentence,

@@ -14,10 +14,13 @@ app.get("/", (req, res) => {
     axios.get('https://join.reckon.com/test2/subTexts')
   ])
   .spread((textToSearch, subText) => { 
-    console.log(textToSearch.data);
-    console.log(subText.data);
-    var response = stringLocator.locate(textToSearch.data, subText.data);
-    res.send(response); 
+    var data = stringLocator.locate(textToSearch.data, subText.data);
+    return axios.post('https://join.reckon.com/test2/submitResults', data)
+  })
+  .then((response) => res.send(response.data))
+  .catch((error) => {
+    console.log(error);
+    res.send('Something when wrong check the logs');
   });
 });
 
