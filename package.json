@@ -1,7 +1,7 @@
 {
-  "name": "reckonq1",
+  "name": "reckonq2",
   "version": "1.0.0",
-  "description": "question 1",
+  "description": "question 2",
   "main": "index.js",
   "scripts": {
     "test": "mocha 'test/**/*.js'"
