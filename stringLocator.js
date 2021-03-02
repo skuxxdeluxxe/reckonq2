@@ -16,8 +16,7 @@ const locateSubTextInSentence = (sentence, subText) => {
             sentenceIndex + subTextRange;
         }
     }
-    const result = { 'subtext': subText, 'result': locations } 
-    return result
+    return  { 'subtext': subText, 'result': locations };
 }
 
 const locate = (textToSearch, subTexts) => {
@@ -25,14 +24,14 @@ const locate = (textToSearch, subTexts) => {
     const texts = subTexts.subTexts;
 
     results = _.map(texts, (subText) => locateSubTextInSentence(sentence, subText));
-    const response = {
+    return {
         candidate: 'Shantanu Padhye',
         text: sentence,
         results: results
-    }
-    return response;
+    };
 }
 
 module.exports = {
-    locate: locate
+    locate: locate,
+    locateSubTextInSentence: locateSubTextInSentence
 }
